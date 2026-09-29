@@ -2,7 +2,10 @@
 
 A full-stack web application built with Python and Django that allows users to track topics they are learning about and maintain a journal of detailed entries for each topic.
 
+🔗 **Live Demo:** [learning-log-mut5.onrender.com](https://learning-log-mut5.onrender.com)  
+*(Note: Hosted on Render's free tier. If idle, the initial page load may take ~30–50 seconds to spin up.)*
 ---
+
 
 ## Technologies Used
 
@@ -10,6 +13,9 @@ A full-stack web application built with Python and Django that allows users to t
 * **Frontend**: HTML5, CSS3, Bootstrap 5 (`django-bootstrap5`)
 * **Database**: SQLite (Development)
 * **Authentication**: Django Contrib Auth System
+* **WSGI / Production Server:** Gunicorn
+* **Static Assets:** WhiteNoise
+* **Hosting & CI/CD:** Render (automated builds on push to `main`)
 
 ---
 
@@ -40,9 +46,31 @@ A full-stack web application built with Python and Django that allows users to t
 │   └── templates/       # App-specific HTML templates (topics, topic, entries, add-entry, edit-entry)
 ├── accounts/            # Authentication app: login, registration forms & views
 ├── manage.py            # Django CLI management script
+├── manage.py            # Django CLI management script
 └── requirements.txt     # Python project dependencies
 
 ```
+---
+
+## 🚀 Deployment Pipeline
+
+The project is configured for continuous deployment on **Render**:
+* **Build Command (`./build.sh`):** Installs dependencies, collects static assets via `collectstatic`, and runs database migrations.
+* **Start Command:** `gunicorn learnlog_project.wsgi:application`
+
+---
+## ⚙️ Environment Variables
+
+To run this application locally or in production. Configure the following environment keys:
+
+| Variable | Description |
+| :--- | :--- |
+| `SECRET_KEY` | Django cryptographic signing key |
+| `DEBUG` | Set to `False` in production |
+| `ALLOWED_HOSTS` | Hostname(s) serving the site |
+
+----
+
 ## Getting Started
 
 Follow these instructions to set up and run the project locally.
@@ -94,6 +122,4 @@ Follow these instructions to set up and run the project locally.
     
 7. **Access the application:**
     Open your browser and visit:
-
-    Plaintext
     [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
