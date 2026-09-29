@@ -22,7 +22,7 @@ A full-stack web application built with Python and Django that allows users to t
 
 ### Topic & Entry Journaling
 - **Topic Management**: Create new topics and browse an overview of all active learning tracks.
-- **Entry Timeline**: Dedicated detail view per topic showing associated log entries formatted in chronological order.
+- **Entry Timeline**: Dedicated detail view per topic showing associated time log.
 - **Content Editing**: Edit existing entries with inline form pre-population.
 
 ### Modern Responsive UI
@@ -37,7 +37,7 @@ A full-stack web application built with Python and Django that allows users to t
 ```text
 ├── learnlog_project/    # Project configuration, root URLs, and global settings
 ├── learning_log/        # Core app: models, views, URL routes, forms
-│   └── templates/       # App-specific HTML templates (topics, topic, entries)
+│   └── templates/       # App-specific HTML templates (topics, topic, entries, add-entry, edit-entry)
 ├── accounts/            # Authentication app: login, registration forms & views
 ├── manage.py            # Django CLI management script
 └── requirements.txt     # Python project dependencies
